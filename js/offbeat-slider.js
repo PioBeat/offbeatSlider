@@ -1,7 +1,9 @@
 /**
- * Created by Dome on 26.03.2017.
+ * Plugin offbeatSlider
+ *
+ * @author Dominik Grzelak
+ * @since 2017-03-26
  */
-
 (function ($) {
 
     $.fn.offbeatSlider = function (options) {

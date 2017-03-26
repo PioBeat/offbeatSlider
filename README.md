@@ -1,4 +1,4 @@
-# jQuery Slideshow Plugin - offbeatSlider
+# offbeatSlider - a jQuery Slideshow Plugin
 
 Easy to use jQuery plugin to create an image slideshow for a thumbnail preview or
 for page headers.
@@ -30,7 +30,8 @@ Then include it like this in your web page:
 ## Usage
 
 ### HTML
-To transform a div into a slideshow add the class ``ofp-slider`` to a div and append some images as direct childs:
+To transform a div into a slideshow add the class ``ofp-slider`` to a div and append some images as direct childs. For each image
+add the class ``ofp-slides``.
 ```html
 <div class="ofp-slider" data-slider-index="1">
     <img class="ofp-slides" src="img/Hydrangeas.jpg">
@@ -61,7 +62,7 @@ data-attribute ``slider-index`` is specified in the corresponding div with the c
 
 ## Customisation
 
-### Position of navigation controls
+### Positioning of navigation controls
 
 **Combined**
 
