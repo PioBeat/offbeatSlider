@@ -3,6 +3,8 @@
 Easy to use jQuery plugin to create an image slideshow for a thumbnail preview or
 for page headers.
 
+**Version: 0.9**
+
 ## Installation
 
 Just copy the [css](https://raw.githubusercontent.com/PioBeat/offbeatSlider/master/css/offbeat-slider.css) and [js](https://raw.githubusercontent.com/PioBeat/offbeatSlider/master/js/offbeat-slider.js) file into your project directory.
@@ -25,6 +27,53 @@ Then include it like this in your web page:
     <script src="js/offbeat-slider.js"></script>
 </body>
 </html>
+```
+
+## Examples
+
+<img src="/art/example1.png" width="49%" />
+
+Code:
+```html
+    <div class="row">
+    <!-- Left example -->
+        <div class="col-md-3">
+            <div class="ofp-slider" data-slider-index="1">
+                <img class="ofp-slides" src="img/Hydrangeas.jpg">
+                <img class="ofp-slides" src="img/Jellyfish.jpg">
+                <img class="ofp-slides" src="img/Koala.jpg">
+
+                <div class="ofp-slider-navigation ofp-center ofp-middle">
+                    <div class="ofp-arrow-left">&#10094;</div>
+                    <div class="ofp-arrow-right">&#10095;</div>
+                </div>
+                <div class="ofp-slider-navigation ofp-bottom-middle">
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right example -->
+        <div class="col-md-3">
+            <div class="ofp-slider" data-slider-index="2">
+                <img class="ofp-slides" src="img/Hydrangeas.jpg">
+                <img class="ofp-slides" src="img/Jellyfish.jpg">
+                <img class="ofp-slides" src="img/Koala.jpg">
+
+                <div class="ofp-slider-navigation ofp-top-right">
+                    <div class="ofp-arrow-left"> &#10096</div>
+                    <div class="ofp-arrow-right"> &#10097</div>
+                </div>
+                <div class="ofp-slider-navigation ofp-center ofp-bottom-middle">
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 ```
 
 ## Usage
@@ -57,8 +106,34 @@ Put this piece of code at the end of your page:
 $(".ofp-slider").offbeatSlider({"slideStartIndex": 3});
 ```
 
-Option ``slideStartIndex`` sets the first slide image for all slideshow containers if no
+## Options
+
+**First slide** (JavaScript / data-attribute)
+
+JavaScript property ``slideStartIndex`` sets the first slide image for all slideshow containers if no
 data-attribute ``slider-index`` is specified in the corresponding div with the class ``ofp-slider``.
+
+**Animation**
+
+You can set the transition animation for the slideshow for the next image with these options:
+```javascript
+$(".ofp-slider").offbeatSlider({
+                                   animate: true,
+                                   duration: 1000,
+                                   easing: "linear" //easein, linear, ...
+                               });
+```
+You can adjust the duration and the easing function. The name for the easing functions are the same as in jQuery.
+
+**Carousel**
+
+Automatically show the next image with these options:
+```javascript
+$(".ofp-slider").offbeatSlider({
+            carousel: true, //auto-animate ?
+            carouselDelay: 3000
+        });
+```
 
 ## Customisation
 
@@ -113,3 +188,7 @@ HTML code| Symbol
 ---------|---------
 ``&#10094;``|&#10094;
 ``&#10095;``|&#10095;
+``&#10096``|&#10096;
+``&#10097``|&#10097;
+``&#171;``|&#171;
+``&#187;``|&#187;

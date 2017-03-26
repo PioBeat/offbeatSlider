@@ -1,5 +1,6 @@
 /**
  * Styles for offbeatSlider
+ * Version 0.9
  *
  * @author Dominik Grzelak
  * @since 2017-03-26
@@ -12,8 +13,18 @@
 }
 
 .ofp-slides {
-    display: block;
     width: 100%;
+    height: auto;
+}
+
+.ofp-slides.slide-visible {
+    display: block;
+    opacity: 1;
+}
+
+.ofp-slides.slide-invisible {
+    display: none;
+    opacity: 0;
 }
 
 .ofp-slider > img {
@@ -21,14 +32,22 @@
 }
 
 /**
-    Navigation
+ *   Navigation
  */
 
 .ofp-slider-navigation {
-    padding: 12px 12px;
+    padding: 8px 4px;
     color: #fff;
     margin-top: 12px;
     margin-bottom: 0.25em;
+}
+
+/**
+* no additional margin if navigation elements are positioned at the middle
+ */
+.ofp-slider-navigation.ofp-middle {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .ofp-slider-dots-active {
@@ -51,6 +70,7 @@
 
 .ofp-arrow-left, .ofp-arrow-right {
     cursor: pointer;
+    margin: 0 4px;
 }
 
 .ofp-arrow-left {
@@ -62,7 +82,7 @@
 }
 
 /**
-* Alignment for navigation elements
+ * Alignment for navigation elements
  */
 .ofp-center {
     display: inline-block;
