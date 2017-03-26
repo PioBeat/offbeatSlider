@@ -29,54 +29,53 @@ Then include it like this in your web page:
 </html>
 ```
 
-## Examples
+## Quick Example
+
+This example shows two different styles for the positioning of the navigation controls and the setting of the start image:
 
 <img src="/art/example1.png" width="49%" />
 
 Code:
 ```html
-    <div class="row">
-    <!-- Left example -->
-        <div class="col-md-3">
-            <div class="ofp-slider" data-slider-index="1">
-                <img class="ofp-slides" src="img/Hydrangeas.jpg">
-                <img class="ofp-slides" src="img/Jellyfish.jpg">
-                <img class="ofp-slides" src="img/Koala.jpg">
+<!-- Left example -->
 
-                <div class="ofp-slider-navigation ofp-center ofp-middle">
-                    <div class="ofp-arrow-left">&#10094;</div>
-                    <div class="ofp-arrow-right">&#10095;</div>
-                </div>
-                <div class="ofp-slider-navigation ofp-bottom-middle">
-                    <span class="ofp-slider-dots"></span>
-                    <span class="ofp-slider-dots"></span>
-                    <span class="ofp-slider-dots"></span>
-                </div>
-            </div>
-        </div>
+<div class="ofp-slider" data-slider-index="1">
+    <img class="ofp-slides" src="img/Hydrangeas.jpg">
+    <img class="ofp-slides" src="img/Jellyfish.jpg">
+    <img class="ofp-slides" src="img/Koala.jpg">
 
-        <!-- Right example -->
-        <div class="col-md-3">
-            <div class="ofp-slider" data-slider-index="2">
-                <img class="ofp-slides" src="img/Hydrangeas.jpg">
-                <img class="ofp-slides" src="img/Jellyfish.jpg">
-                <img class="ofp-slides" src="img/Koala.jpg">
-
-                <div class="ofp-slider-navigation ofp-top-right">
-                    <div class="ofp-arrow-left"> &#10096</div>
-                    <div class="ofp-arrow-right"> &#10097</div>
-                </div>
-                <div class="ofp-slider-navigation ofp-center ofp-bottom-middle">
-                    <span class="ofp-slider-dots"></span>
-                    <span class="ofp-slider-dots"></span>
-                    <span class="ofp-slider-dots"></span>
-                </div>
-            </div>
-        </div>
+    <div class="ofp-slider-navigation ofp-center ofp-middle">
+        <div class="ofp-arrow-left">&#10094;</div>
+        <div class="ofp-arrow-right">&#10095;</div>
     </div>
+    <div class="ofp-slider-navigation ofp-bottom-middle">
+        <span class="ofp-slider-dots"></span>
+        <span class="ofp-slider-dots"></span>
+        <span class="ofp-slider-dots"></span>
+    </div>
+</div>
+
+
+ <!-- Right example -->
+
+<div class="ofp-slider" data-slider-index="2">
+    <img class="ofp-slides" src="img/Hydrangeas.jpg">
+    <img class="ofp-slides" src="img/Jellyfish.jpg">
+    <img class="ofp-slides" src="img/Koala.jpg">
+
+    <div class="ofp-slider-navigation ofp-top-right">
+        <div class="ofp-arrow-left"> &#10096</div>
+        <div class="ofp-arrow-right"> &#10097</div>
+    </div>
+    <div class="ofp-slider-navigation ofp-center ofp-bottom-middle">
+        <span class="ofp-slider-dots"></span>
+        <span class="ofp-slider-dots"></span>
+        <span class="ofp-slider-dots"></span>
+    </div>
+</div>
 ```
 
-## Usage
+## Basic Usage
 
 ### HTML
 To transform a div into a slideshow add the class ``ofp-slider`` to a div and append some images as direct childs. For each image
