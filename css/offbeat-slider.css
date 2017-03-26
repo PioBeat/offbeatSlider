@@ -1,0 +1,131 @@
+
+.ofp-slider {
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.ofp-slides {
+    display: block;
+    width: 100%;
+}
+
+.ofp-slider > img {
+
+}
+
+/**
+    Navigation
+ */
+
+.ofp-slider-navigation {
+    padding: 12px 12px;
+    color: #fff;
+    margin-top: 12px;
+    margin-bottom: 0.25em;
+}
+
+.ofp-slider-dots-active {
+    color: #fff;
+    background-color: #fff !important;
+}
+
+.ofp-slider-dots {
+    display: inline-block;
+    height: 13px;
+    width: 13px;
+    padding: 0;
+    color: #fff;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc !important;
+}
+
+.ofp-arrow-left, .ofp-arrow-right {
+    cursor: pointer;
+}
+
+.ofp-arrow-left {
+    float: left;
+}
+
+.ofp-arrow-right {
+    float: right;
+}
+
+/**
+* Alignment for navigation elements
+ */
+.ofp-center {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.ofp-top-left {
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+.ofp-top-right {
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.ofp-bottom-left {
+    position: absolute;
+    left: 0;
+    bottom: 0
+}
+
+.ofp-bottom-right {
+    position: absolute;
+    right: 0;
+    bottom: 0
+}
+
+.ofp-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.ofp-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0%, -50%);
+    -ms-transform: translate(-0%, -50%)
+}
+
+.ofp-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%)
+}
+
+.ofp-top-middle {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%)
+}
+
+.ofp-bottom-middle {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%)
+}
+
+

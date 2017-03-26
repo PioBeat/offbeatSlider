@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>Test - offbeatSlider</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="css/offbeat-slider.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Test - offbeatSlider</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="ofp-slider" data-slider-index="1">
+                <img class="ofp-slides" src="img/Hydrangeas.jpg">
+                <img class="ofp-slides" src="img/Jellyfish.jpg">
+                <img class="ofp-slides" src="img/Koala.jpg">
+
+                <div class="ofp-slider-navigation ofp-center ofp-top-middle">
+                    <div class="ofp-arrow-left">&#10094;</div>
+                    <div class="ofp-arrow-right">&#10095;</div>
+                </div>
+                <div class="ofp-slider-navigation ofp-bottom-middle">
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="ofp-slider" data-slider-index="1">
+                <img class="ofp-slides" src="img/Hydrangeas.jpg">
+                <img class="ofp-slides" src="img/Jellyfish.jpg">
+                <img class="ofp-slides" src="img/Koala.jpg">
+
+                <div class="ofp-slider-navigation ofp-center ofp-middle">
+                    <div class="ofp-arrow-left">&#10094;</div>
+                    <div class="ofp-arrow-right">&#10095;</div>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/offbeat-slider.js"></script>
+
+<script>
+    $(".ofp-slider").offbeatSlider({"slideStartIndex": 3});
+</script>
+</body>
+</html>
