@@ -64,8 +64,8 @@ Code:
     <img class="ofp-slides" src="img/Koala.jpg">
 
     <div class="ofp-slider-navigation ofp-top-right">
-        <div class="ofp-arrow-left"> &#10096</div>
-        <div class="ofp-arrow-right"> &#10097</div>
+        <div class="ofp-arrow-left"> &#10096;</div>
+        <div class="ofp-arrow-right"> &#10097;</div>
     </div>
     <div class="ofp-slider-navigation ofp-center ofp-bottom-middle">
         <span class="ofp-slider-dots"></span>
