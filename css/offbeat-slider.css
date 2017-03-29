@@ -1,6 +1,6 @@
 /**
  * Styles for offbeatSlider
- * Version 0.9
+ * Version 0.9.1
  *
  * @author Dominik Grzelak
  * @since 2017-03-26
@@ -9,12 +9,22 @@
 .ofp-slider {
     max-width: 100%;
     margin: auto;
+    padding: 0;
+    display: block;
     position: relative;
 }
 
 .ofp-slides {
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+
+.ofp-slides > * {
+    max-width: 100%;
+}
+
+.ofp-slides-text {
+    padding: 20px 12px 20px;
 }
 
 .ofp-slides.slide-visible {
@@ -27,19 +37,17 @@
     opacity: 0;
 }
 
-.ofp-slider > img {
-
-}
-
 /**
  *   Navigation
  */
 
 .ofp-slider-navigation {
-    padding: 8px 4px;
+    /*padding: 8px 4px;*/
+    position: absolute;
     color: #fff;
-    margin-top: 12px;
-    margin-bottom: 0.25em;
+    margin: 0;
+    /*margin-top: 12px;*/
+    /*margin-bottom: 0.25em;*/
 }
 
 /**
@@ -70,7 +78,7 @@
 
 .ofp-arrow-left, .ofp-arrow-right {
     cursor: pointer;
-    margin: 0 4px;
+    margin: 0 6px;
 }
 
 .ofp-arrow-left {
@@ -79,6 +87,14 @@
 
 .ofp-arrow-right {
     float: right;
+}
+
+.ofp-top-left > .ofp-arrow-left {
+    margin-left: 0;
+}
+
+.ofp-top-right > .ofp-arrow-right {
+    margin-right: 0;
 }
 
 /**
@@ -92,26 +108,26 @@
 
 .ofp-top-left {
     position: absolute;
-    left: 0;
-    top: 0
+    left: 2%;
+    top: 12px;
 }
 
 .ofp-top-right {
     position: absolute;
-    right: 0;
-    top: 0
+    right: 2%;
+    top: 12px
 }
 
 .ofp-bottom-left {
     position: absolute;
     left: 0;
-    bottom: 0
+    bottom: 12px;
 }
 
 .ofp-bottom-right {
     position: absolute;
     right: 0;
-    bottom: 0
+    bottom: 12px;
 }
 
 .ofp-middle {
@@ -149,7 +165,7 @@
 .ofp-bottom-middle {
     position: absolute;
     left: 50%;
-    bottom: 0;
+    bottom: 5%;
     transform: translate(-50%, 0%);
     -ms-transform: translate(-50%, 0%)
 }
