@@ -3,7 +3,7 @@
 Easy to use jQuery plugin to create an image slideshow for a thumbnail preview or
 for page headers.
 
-**Version: 0.9**
+**Version: 0.9.1**
 
 ## Installation
 
@@ -78,7 +78,7 @@ Code:
 ## Basic Usage
 
 ### HTML
-To transform a div into a slideshow add the class ``ofp-slider`` to a div and append some images as direct childs. For each image
+To transform a div into a slide show add the class ``ofp-slider`` to a div and append some images as direct child. For each image
 add the class ``ofp-slides``.
 ```html
 <div class="ofp-slider" data-slider-index="1">
@@ -100,21 +100,23 @@ add the class ``ofp-slides``.
 The data attribute ``slider-index`` specifies the index of the first slide to show.
 
 ### JavaScript
-Put this piece of code at the end of your page:
+Next, put this piece of code at the end of your page:
 ```javascript
-$(".ofp-slider").offbeatSlider({"slideStartIndex": 3});
+$(".ofp-slider").offbeatSlider({"slideStartIndex": 1});
 ```
+The option ``slideStartIndex`` defines the index of the first slide to show for every slide show div if
+the data attribute ``slider-index`` is not defined.
 
 ## Options
 
 **First slide** (JavaScript / data-attribute)
 
-JavaScript property ``slideStartIndex`` sets the first slide image for all slideshow containers if no
+JavaScript property ``slideStartIndex`` sets the first slide image for all slide show containers if no
 data-attribute ``slider-index`` is specified in the corresponding div with the class ``ofp-slider``.
 
 **Animation**
 
-You can set the transition animation for the slideshow for the next image with these options:
+You can set the transition animation for each slide in the slide show with these options:
 ```javascript
 $(".ofp-slider").offbeatSlider({
                                    animate: true,
@@ -126,7 +128,7 @@ You can adjust the duration and the easing function. The name for the easing fun
 
 **Carousel**
 
-Automatically show the next image with these options:
+Automatically show the available slides in sequence with these options:
 ```javascript
 $(".ofp-slider").offbeatSlider({
             carousel: true, //auto-animate ?
@@ -134,13 +136,14 @@ $(".ofp-slider").offbeatSlider({
         });
 ```
 
+The default of the carousel animation is ``false`` which means the slides won't be shown automatically one by one.
+
 ## Customisation
 
 ### Positioning of navigation controls
 
 **Combined**
-
-Slider dots and arrows as one:
+Slider dots and arrows as one unit:
 ```html
 <div class="ofp-slider-navigation ofp-center ofp-middle">
     <div class="ofp-arrow-left">&#10094;</div>
@@ -168,9 +171,56 @@ Use two div-containers with class ``ofp-slider-navigation``:
 ```
 Arrow controls will be displayed at the top and the dots are displayed at the bottom within the image.
 
-#### Classes for positioning
+#### <a name="positioning"></a> Classes for positioning
 
-todo
+Any meaningful combination of the listed css classes is possible to position
+the navigation controls or the image description.
+
+```css
+ofp-center
+ofp-top-left
+ofp-top-right
+ofp-bottom-left
+ofp-bottom-right
+ofp-middle
+ofp-left
+ofp-right
+ofp-top-middle
+ofp-bottom-middle
+```
+
+### Text slide
+
+You can have a text-only slide if you add the css class ``ofp-slides-text`` next to ``ofp-slides``:
+```html
+<div class="ofp-slider" data-slider-index="1">
+    <div class="ofp-slides ofp-slides-text">
+        I'm a nice text slide
+    </div>
+    <img class="ofp-slides" src="img/Hydrangeas.jpg">
+    <div class="ofp-slides ofp-slides-text">
+        I'm the <strong>last</strong> nice text slide
+    </div>
+    <div class="ofp-slider-navigation ofp-top-right">
+        <div class="ofp-arrow-left">&#10096;</div>
+        <div class="ofp-arrow-right">&#10097;</div>
+    </div>
+</div>
+```
+With this piece of code you have 3 slides consisting of a text slide, image slide, and a text slide. The
+navigation is placed at the top right corner.
+
+### Image slide with description
+For that case:
+```html
+<div class="ofp-slides">
+    <img src="img/Hydrangeas.jpg">
+    <p class="ofp-top-middle" style="color: #efefef; font-size: 1em; font-weight: bold;">
+        Description for the picture
+    </p>
+</div>
+```
+For the positioning of the description use the same classes as described in <a href="#positioning">Classes for positioning</a>
 
 ### Arrow symbols
 
@@ -191,3 +241,7 @@ HTML code| Symbol
 ``&#10097``|&#10097;
 ``&#171;``|&#171;
 ``&#187;``|&#187;
+
+### Further examples
+
+Please look into the [test page](index.html) for further examples.
