@@ -1,7 +1,7 @@
 /**
  * Plugin offbeatSlider
  *
- * Version 0.9
+ * Version 0.9.1
  *
  * @author Dominik Grzelak
  * @since 2017-03-26
@@ -9,7 +9,6 @@
 (function ($) {
 
     var DATA_PARAM_INDEX = "slider-index";
-    var DATA_PARAM_MOUSE = "ofp-mouse-over";
 
     var sessionObject = {};
 
@@ -43,16 +42,12 @@
         var sliderContainer = sessionObject[uid].sliderContainer;
         sessionObject[uid].stopCarousel = false;
 
-        if (sliderContainer.data(DATA_PARAM_MOUSE) === undefined) {
-            sliderContainer.data(DATA_PARAM_MOUSE, "false");
-        }
-
         var dots = sliderContainer.find(".ofp-slider-dots");
         var slides = sliderContainer.find(".ofp-slides");
 
         sessionObject[uid]["dots"] = dots;
         sessionObject[uid]["slides"] = slides;
-        sessionObject[uid].numSlides = slides.length;
+        sessionObject[uid]["numSlides"] = slides.length;
         sessionObject[uid]["currentIndex"] = indexStartSlide;
 
         for (i = 0; i < dots.length; i++) {
