@@ -250,4 +250,4 @@ Please look into the [test page](index.html) for further examples.
 
 <p>( feel free to send me your website using this component! :) )</p>
 
-* [dollstuff](http://www.dollstuff.de/)
+* [DollStuff](http://www.dollstuff.de/)
