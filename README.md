@@ -245,3 +245,9 @@ HTML code| Symbol
 ### Further examples
 
 Please look into the [test page](index.html) for further examples.
+
+## Websites using the <i>offbeat-slider</i>
+
+<p>( feel free to send me your website using this component! :) )</p>
+
+* [dollstuff](http://www.dollstuff.de/)
