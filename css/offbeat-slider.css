@@ -79,6 +79,18 @@
 .ofp-arrow-left, .ofp-arrow-right {
     cursor: pointer;
     margin: 0 6px;
+    font-size: 1.2em;
+}
+
+@media all and (max-width: 520px) {
+    .ofp-slider-dots {
+        height: 16px;
+        width: 16px;
+    }
+
+    .ofp-arrow-left, .ofp-arrow-right {
+        font-size: 1.8em;
+    }
 }
 
 .ofp-arrow-left {
