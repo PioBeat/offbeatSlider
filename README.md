@@ -3,7 +3,7 @@
 Easy to use jQuery plugin to create an image slideshow for a thumbnail preview or
 for page headers.
 
-**Version: 0.9.1**
+**Version: 0.9.1.1**
 
 ## Installation
 
