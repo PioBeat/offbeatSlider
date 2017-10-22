@@ -3,7 +3,7 @@
 Easy to use jQuery plugin to create an image slideshow for a thumbnail preview or
 for page headers.
 
-**Version: 0.9.1.1**
+**Version: 0.9.2**
 
 ## Installation
 
@@ -123,10 +123,33 @@ You can set the transition animation for each slide in the slide show with these
 $(".ofp-slider").offbeatSlider({
                                    animate: true,
                                    duration: 1000,
+                                   animation: "normal",
                                    easing: "linear" //easein, linear, ...
                                });
 ```
 You can adjust the duration and the easing function. The name for the easing functions are the same as in jQuery.
+This is the default slider implementation. A simple and beautiful fade-in transition is created.
+
+If you want to use specific CSS3 animations you have to declare the following settings:
+```javascript
+$(".ofp-slider").offbeatSlider({
+                                   animate: true,
+                                   animation: "css",
+                                   animationRight: "swing-in-right-fwd",
+                                   animationLeft: "swing-in-left-fwd"
+                               });
+```
+
+The ``animation`` property tells the slider to use the ``animationRight`` and ``animationLeft`` values which are CSS animations
+for both directions. Those classes have to be available in a css file. The same settings can also be made available in the correspondig div
+with the data-attributes ``data-animation-right`` and ``data-animation-left``:
+```html
+<div class="ofp-slider" data-animation-right="swing-in-right-fwd" data-animation-left="swing-in-left-fwd">
+<!-- more ... -->
+</div>           
+```
+
+To create CSS animations you can use [animista](http://animista.net).
 
 **Carousel**
 

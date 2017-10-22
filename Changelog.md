@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.9.2] - 2017-10-22
+- Support for CSS animations now possible
+- Fixed issue regarding the settings object. Settings are now shared correctly among the sliders.
+Individual settings now possible for single sliders.
+- Some code improvements
+
 ## [0.9.1.1] - 2017-04-27
 Minor CSS update - Adjustment of arrow and slider dot size when
 showing on a smaller screen
