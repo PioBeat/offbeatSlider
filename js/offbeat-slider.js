@@ -1,7 +1,7 @@
 /**
- * Plugin offbeatSlider
+ * jQuery Plugin offbeatSlider
  *
- * Version 0.9.1
+ * Version 0.9.2
  *
  * @author Dominik Grzelak
  * @since 2017-03-26
@@ -9,46 +9,51 @@
 (function ($) {
 
     var DATA_PARAM_INDEX = "slider-index";
+    var DATA_PARAM_ANIMATION_RIGHT = "animation-right";
+    var DATA_PARAM_ANIMATION_LEFT = "animation-left";
 
     var sessionObject = {};
-
-    var settings = {};
 
     function createID() {
         return Math.ceil((Math.random()) * 0x100000).toString();
     }
 
     $.fn.offbeatSlider = function (options) {
-        settings = $.extend({}, $.fn.offbeatSlider.settingsDefault, options);
-
         this.filter(".ofp-slider").each(function () {
             var sliderContainer = $(this);
-
             var uid = createID();
-
-            sessionObject[uid] = {
-                "sliderContainer": sliderContainer
-            };
+            var settings = $.extend({}, $.fn.offbeatSlider.settingsDefault, options);
 
             var tmpIx = sliderContainer.data(DATA_PARAM_INDEX);
-            if (tmpIx === undefined) {
-                tmpIx = settings.slideStartIndex;
+            if (tmpIx !== undefined) {
+                settings.slideStartIndex = tmpIx;
             }
-            init(uid, tmpIx);
+            var animR = sliderContainer.data(DATA_PARAM_ANIMATION_RIGHT);
+            var animL = sliderContainer.data(DATA_PARAM_ANIMATION_LEFT);
+            if (animR !== undefined && animL !== undefined) {
+                settings.animationRight = animR;
+                settings.animationLeft = animL;
+            }
+
+            sessionObject[uid] = {
+                "sliderContainer": sliderContainer,
+                "settings": settings
+            };
+            init(uid);
         });
     };
 
-    function init(uid, indexStartSlide) {
+    function init(uid) {
         var sliderContainer = sessionObject[uid].sliderContainer;
-        sessionObject[uid].stopCarousel = false;
-
+        var settings = sessionObject[uid].settings;
         var dots = sliderContainer.find(".ofp-slider-dots");
         var slides = sliderContainer.find(".ofp-slides");
 
+        sessionObject[uid].stopCarousel = false;
         sessionObject[uid]["dots"] = dots;
         sessionObject[uid]["slides"] = slides;
         sessionObject[uid]["numSlides"] = slides.length;
-        sessionObject[uid]["currentIndex"] = indexStartSlide;
+        sessionObject[uid]["currentIndex"] = settings.slideStartIndex;
 
         for (var i = 0; i < dots.length; i++) {
             $(dots[i]).removeClass("ofp-slider-dots-active");
@@ -90,6 +95,8 @@
             index = sliderContainer.data("slider-index");
         }
 
+        sessionObject[uid].prevIndex = index;
+
         if (!$(event.target).hasClass("ofp-slider-dots")) {
             if ($(event.target).hasClass("ofp-arrow-left")) {
                 index += -1;
@@ -106,8 +113,8 @@
         if (sessionObject[uid].stopCarousel) {
             clearTimeout(sessionObject[uid].carouselTimer);
         }
-
-        var carouselTimer = setTimeout(function () {
+        var settings = sessionObject[uid].settings;
+        sessionObject[uid].carouselTimer = setTimeout(function () {
             var index = sessionObject[uid].currentIndex;
             var numSlides = sessionObject[uid].numSlides;
             index = checkSlideIndex(index + 1, numSlides);
@@ -115,7 +122,6 @@
             showNextSlide(uid);
             carousel(uid);
         }, settings.carouselDelay);
-        sessionObject[uid].carouselTimer = carouselTimer;
     }
 
     function checkSlideIndex(index, maximum) {
@@ -127,12 +133,14 @@
     }
 
     function showNextSlide(uid) {
+        var settings = sessionObject[uid].settings;
         var sliderContainer = sessionObject[uid]["sliderContainer"];
         var numSlides = sessionObject[uid]["numSlides"];
         var slides = sessionObject[uid]["slides"];
         var dots = sessionObject[uid]["dots"];
         var index = sessionObject[uid]["currentIndex"];
-
+        var prevIndex = sessionObject[uid]["prevIndex"];
+        var oldIndex = index;
         index = checkSlideIndex(index, numSlides);
 
         sliderContainer.data("slider-index", index);
@@ -141,17 +149,28 @@
             $(dots[i]).removeClass("ofp-slider-dots-active");
             $(slides[i]).addClass("slide-invisible");
             $(slides[i]).removeClass("slide-visible");
+            $(slides[i]).removeClass(settings.animation);
+            $(slides[i]).removeClass(settings.animationRight);
+            $(slides[i]).removeClass(settings.animationLeft);
         }
 
         if (settings.animate) {
-            $(slides[index - 1]).css("opacity", 0.19);
             $(slides[index - 1]).removeClass("slide-invisible");
-            $(dots[index - 1]).addClass("ofp-slider-dots-active");
-            $(slides[index - 1]).animate({
-                opacity: 1
-            }, settings.duration, settings.easing, function () {
-                $(slides[index - 1]).addClass("slide-visible");
-            });
+            if (settings.animation === "normal") {
+                $(slides[index - 1]).css("opacity", 0.19);
+                $(dots[index - 1]).addClass("ofp-slider-dots-active");
+                $(slides[index - 1]).animate({
+                    opacity: 1
+                }, settings.duration, settings.easing, function () {
+                    $(slides[index - 1]).addClass("slide-visible");
+                });
+            } else if (settings.animation === "css") {
+                $(dots[index - 1]).addClass("ofp-slider-dots-active");
+                if (prevIndex < oldIndex)
+                    $(slides[index - 1]).addClass(settings.animationRight);
+                else
+                    $(slides[index - 1]).addClass(settings.animationLeft);
+            }
         } else {
             $(dots[index - 1]).addClass("ofp-slider-dots-active");
             $(slides[index - 1]).removeClass("slide-invisible");
@@ -163,6 +182,8 @@
         slideStartIndex: 1,
         animate: true,
         animation: "normal",
+        animationLeft: "",
+        animationRight: "",
         duration: 1000,
         easing: "linear", //easein, linear, ...
         carousel: false, //auto-animate ?
