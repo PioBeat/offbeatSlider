@@ -246,8 +246,8 @@ HTML code| Symbol
 
 Please look into the [test page](index.html) for further examples.
 
-## Websites using the <i>offbeat-slider</i>
+## Websites using <i>offbeatSlider</i>
 
-<p>( feel free to send me your website using this component! :) )</p>
+<p>feel free to send me your website using this component! :)</p>
 
 * [DollStuff](http://www.dollstuff.de/)
