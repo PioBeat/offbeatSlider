@@ -25,7 +25,7 @@
             var sliderContainer = $(this);
 
             var uid = createID();
-            // console.log("uid", uid);
+
             sessionObject[uid] = {
                 "sliderContainer": sliderContainer
             };
@@ -50,7 +50,7 @@
         sessionObject[uid]["numSlides"] = slides.length;
         sessionObject[uid]["currentIndex"] = indexStartSlide;
 
-        for (i = 0; i < dots.length; i++) {
+        for (var i = 0; i < dots.length; i++) {
             $(dots[i]).removeClass("ofp-slider-dots-active");
             $(dots[i]).click({uid: uid, index: i + 1}, clLis);
         }
@@ -107,7 +107,7 @@
             clearTimeout(sessionObject[uid].carouselTimer);
         }
 
-        carouselTimer = setTimeout(function () {
+        var carouselTimer = setTimeout(function () {
             var index = sessionObject[uid].currentIndex;
             var numSlides = sessionObject[uid].numSlides;
             index = checkSlideIndex(index + 1, numSlides);
@@ -137,7 +137,7 @@
 
         sliderContainer.data("slider-index", index);
         sessionObject[uid].currentIndex = index;
-        for (i = 0; i < slides.length; i++) {
+        for (var i = 0; i < slides.length; i++) {
             $(dots[i]).removeClass("ofp-slider-dots-active");
             $(slides[i]).addClass("slide-invisible");
             $(slides[i]).removeClass("slide-visible");
@@ -162,10 +162,11 @@
     $.fn.offbeatSlider.settingsDefault = {
         slideStartIndex: 1,
         animate: true,
-        carousel: false, //auto-animate ?
-        carouselDelay: 3000,
+        animation: "normal",
         duration: 1000,
-        easing: "linear" //easein, linear, ...
+        easing: "linear", //easein, linear, ...
+        carousel: false, //auto-animate ?
+        carouselDelay: 3000
     };
 
 })(jQuery);
