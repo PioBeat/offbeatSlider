@@ -114,7 +114,7 @@
             clearTimeout(sessionObject[uid].carouselTimer);
         }
         var settings = sessionObject[uid].settings;
-        sessionObject[uid].carouselTimer = setTimeout(function () {
+        var carouselTimer = setTimeout(function () {
             var index = sessionObject[uid].currentIndex;
             var numSlides = sessionObject[uid].numSlides;
             index = checkSlideIndex(index + 1, numSlides);
@@ -122,6 +122,7 @@
             showNextSlide(uid);
             carousel(uid);
         }, settings.carouselDelay);
+        sessionObject[uid].carouselTimer = carouselTimer;
     }
 
     function checkSlideIndex(index, maximum) {
