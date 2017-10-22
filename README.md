@@ -7,7 +7,9 @@ for page headers.
 
 ## Installation
 
-Just copy the [css](https://raw.githubusercontent.com/PioBeat/offbeatSlider/master/css/offbeat-slider.css) and [js](https://raw.githubusercontent.com/PioBeat/offbeatSlider/master/js/offbeat-slider.js) file into your project directory.
+You can download the latest release [here](https://github.com/PioBeat/offbeatSlider/releases).
+Just copy the [css](https://raw.githubusercontent.com/PioBeat/offbeatSlider/master/css/offbeat-slider.css) and 
+[js](https://raw.githubusercontent.com/PioBeat/offbeatSlider/master/js/offbeat-slider.js) file into your project directory.
 Then include it like this in your web page:
 ```html
 <!doctype html>
