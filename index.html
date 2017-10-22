@@ -17,21 +17,27 @@
         /* Overwriting the background color of each slide */
         .ofp-slides-text {
             background-color: antiquewhite;
-            box-shadow:0 2px 2px 0 rgba(0,0,0,0.25),0 4px 12px 0 rgba(0,0,0,0.10);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25), 0 4px 12px 0 rgba(0, 0, 0, 0.10);
         }
     </style>
 </head>
 <body style="background-color: #dedede;">
 
 <div class="container">
-    <h2>Test - offbeatSlider</h2>
+    <h2>offbeatSlider - Examples</h2>
+    <hr/>
+    <div class="row" style="margin: 2em;">
+        <div class="col-md-12 text-center" style="font-size: 1.2em;">
+            Same settings for first row
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <div>
                 Default slider - navigation via arrows and dots
             </div>
             <hr/>
-            <div class="ofp-slider" data-slider-index="1">
+            <div class="ofp-slider ofp-slider-group-1" data-slider-index="1">
                 <img class="ofp-slides" src="img/Hydrangeas.jpg">
                 <img class="ofp-slides" src="img/Jellyfish.jpg">
                 <img class="ofp-slides" src="img/Koala.jpg">
@@ -53,7 +59,7 @@
                 Slider example with text-only slide
             </div>
             <hr/>
-            <div class="ofp-slider" data-slider-index="1">
+            <div class="ofp-slider ofp-slider-group-1" data-slider-index="1">
                 <div class="ofp-slides ofp-slides-text">
                     I'm a nice text slide
                 </div>
@@ -75,7 +81,90 @@
                 Slider example with image description
             </div>
             <hr/>
-            <div class="ofp-slider" data-slider-index="2">
+            <div class="ofp-slider ofp-slider-group-1" data-slider-index="2">
+                <div class="ofp-slides ofp-slides-text">
+                    <p style="font-size: 4em;">
+                        The <br/>
+                        first <br/>
+                        slide
+                    </p>
+                </div>
+                <div class="ofp-slides">
+                    <img src="img/Hydrangeas.jpg">
+                    <p class="ofp-top-middle" style="color: #efefef; font-size: 1em; font-weight: bold;">
+                        Description for the picture
+                    </p>
+                </div>
+
+                <img class="ofp-slides" src="img/Jellyfish.jpg">
+                <img class="ofp-slides" src="img/Koala.jpg">
+
+                <div class="ofp-slider-navigation ofp-top-left">
+                    <div class="ofp-arrow-left">&#10096;</div>
+                    <div class="ofp-arrow-right">&#10097;</div>
+                </div>
+                <div class="ofp-slider-navigation ofp-center ofp-bottom-middle">
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr/>
+    <div class="row" style="margin: 2em;">
+        <div class="col-md-12 text-center" style="font-size: 1.2em;">
+            Individuell settings for each slider
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                Carousel animation <br/> <br/>
+            </div>
+            <hr/>
+            <div class="ofp-slider ofp-slider-a">
+                <div class="ofp-slides ofp-slides-text">
+                    <p style="font-size: 4em;">
+                        The <br/>
+                        first <br/>
+                        slide
+                    </p>
+                </div>
+                <div class="ofp-slides">
+                    <img src="img/Hydrangeas.jpg">
+                    <p class="ofp-top-middle" style="color: #efefef; font-size: 1em; font-weight: bold;">
+                        Description for the picture
+                    </p>
+                </div>
+
+                <img class="ofp-slides" src="img/Jellyfish.jpg">
+                <img class="ofp-slides" src="img/Koala.jpg">
+
+                <div class="ofp-slider-navigation ofp-top-left">
+                    <div class="ofp-arrow-left">&#10096;</div>
+                    <div class="ofp-arrow-right">&#10097;</div>
+                </div>
+                <div class="ofp-slider-navigation ofp-center ofp-bottom-middle">
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                    <span class="ofp-slider-dots"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div>
+                Slide transition via specific CSS animation defined with the data-attribute
+                <code>data-animation-right</code> and
+                <code>data-animation-left</code>
+            </div>
+            <hr/>
+            <div class="ofp-slider ofp-slider-b" data-animation-right="swing-in-right-fwd"
+                 data-animation-left="swing-in-left-fwd">
                 <div class="ofp-slides ofp-slides-text">
                     <p style="font-size: 4em;">
                         The <br/>
@@ -113,7 +202,11 @@
 <script src="js/offbeat-slider.js"></script>
 
 <script>
-    $(".ofp-slider").offbeatSlider({"slideStartIndex": 1, "carousel": false});
+    //same settings for all selected elements
+    $(".ofp-slider-group-1").offbeatSlider({"slideStartIndex": 1, "carousel": false});
+    //individual settings
+    $(".ofp-slider-a").offbeatSlider({"slideStartIndex": 4, "carousel": true});
+    $(".ofp-slider-b").offbeatSlider({"slideStartIndex": 3, "carousel": false, "animate": true, "animation": "css"});
 </script>
 </body>
 </html>
