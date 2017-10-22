@@ -1,7 +1,7 @@
 # Changelog
 
 ## [0.9.2] - 2017-10-22
-- Support for CSS animations now possible
+- Support for CSS animations for slide transition
 - Fixed issue regarding the settings object. Settings are now shared correctly among the sliders.
 Individual settings now possible for single sliders.
 - Some code improvements
